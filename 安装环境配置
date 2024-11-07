@@ -2,6 +2,7 @@ https://blog.csdn.net/xinyingzai/article/details/135459640
 https://blog.csdn.net/liigo/article/details/132814673
 
 rust+mingw64编译会报错error: export ordinal too large: 68600
+https://github.com/tauri-apps/tauri/issues/4794
 
 ide中tarui  rust目录下build.rs 使用跳转案件跳转点击build，跳转带build向下拉动，到try_build方法修改
 
