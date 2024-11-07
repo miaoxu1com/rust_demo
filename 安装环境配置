@@ -1,2 +1,18 @@
 https://blog.csdn.net/xinyingzai/article/details/135459640
 https://blog.csdn.net/liigo/article/details/132814673
+
+rust+mingw64编译会报错error: export ordinal too large: 68600
+
+ide中tarui  rust目录下build.rs 使用跳转案件跳转点击build，跳转带build向下拉动，到try_build方法修改
+
+use anyhow::anyhow;下面添加一句
+println!("cargo::rustc-link-arg=-Wl,--exclude-libs=ALL");
+
+执行
+cargo clean
+cargo build
+pnpm tauri dev
+
+还是不如window官方编译器快,启动一次要等比较久
+
+前端目录放前端代码，后端代码放后端目录，ide定位到后端代码调试后端，运行调试显示效果
