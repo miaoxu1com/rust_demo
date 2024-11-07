@@ -1,0 +1,76 @@
+rust必须显式指定依赖包的版本，不能像python一样下载最新版本
+
+设置固定窗口大小参数
+tauri.conf.json文件
+"windows": [
+      {
+        "title": "sendmail",
+        "center": true,
+        "resizable": false,
+        "maximized":false,
+        "fullscreen": false,
+        "maximizable":false,
+        "decorations": true,
+        "width": 800,
+        "height": 350
+      }
+    ],
+
+引入bootstrap到vue3.0
+main.js文件
+import { createApp } from "vue";
+import App from "./App.vue";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+
+
+createApp(App).mount("#app");
+
+App.vue定义前端
+<script setup>
+import { ref } from "vue";
+import { invoke } from "@tauri-apps/api/core";
+
+const greetMsg = ref("");
+const name = ref("");
+
+async function greet() {
+  // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
+  greetMsg.value = await invoke("greet", { name: name.value });
+}
+</script>
+
+<template>
+  <div class="container">
+    <div class="d-grid gap-4 mx-auto">
+      <div class="d-grid gap-2 col-5 mx-auto">
+        <label>邮箱地址</label>
+        <input type="text" class="form-control" v-model="email" id="email"></input>
+      </div>
+      <div class="d-grid gap-4 col-4 mx-auto">
+        <b-button class="btn btn-primary" @click="sendEmail" :disabled="isSending">发送</b-button>
+        <b-button class="btn btn-primary" @click="openEmail">查看邮箱</b-button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      name: '',
+      greetMsg: ''
+    };
+  },
+  methods: {
+    greet() {
+      this.greetMsg = `Hello, ${this.name}!`;
+    }
+  }
+};
+</script>
+
+<style scoped>
+/* Add any additional styles here */
+</style>
