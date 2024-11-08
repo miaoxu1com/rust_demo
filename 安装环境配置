@@ -23,3 +23,5 @@ pnpm tauri dev
 最后再整合到一起调整系统
 session其实就是每次都会自动带上cookie请求
 rust  lazy_static相当于python的全局变量 info!是rust中的宏调用，每个变量都要显式修饰/注解变量类型
+
+let mut 可变变量
