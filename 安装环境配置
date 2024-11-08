@@ -27,3 +27,5 @@ rust  lazy_static相当于python的全局变量 info!是rust中的宏调用，�
 let mut 可变变量
 
 rust中注册的tauri命令需要参数，在vue中调用时需要使用驼峰进行传参，例如后端是re_url ,前端就要用reUrl参数名否则报错
+rust中如果返回结果和函数注解的返回类型不一致，会自动把返回的类型转换成声明的类型，如果转换失败会报错
+rust不需要return 返回时直接 写返回变量即可
