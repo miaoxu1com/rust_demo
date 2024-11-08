@@ -25,3 +25,5 @@ session其实就是每次都会自动带上cookie请求
 rust  lazy_static相当于python的全局变量 info!是rust中的宏调用，每个变量都要显式修饰/注解变量类型
 
 let mut 可变变量
+
+rust中注册的tauri命令需要参数，在vue中调用时需要使用驼峰进行传参，例如后端是re_url ,前端就要用reUrl参数名否则报错
