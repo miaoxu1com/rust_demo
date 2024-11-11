@@ -1,0 +1,11 @@
+Vec<String> 这个相当于 python的 字符串列表
+
+Vec代表是范类型 <> 代表是一个list  String代表list的元素是字符串
+
+config.get("config")
+            .and_then(|c| c.get("email_url"))
+            .and_then(|url| url.as_str())
+            .map(String::from)
+            .expect("无法获取 email_url")
+
+调用链代表从配置文件拿数据and_then 和python .get.get类似.map代表对数据使用map方法进行二次加工处理.expect 对结果进行异常判断
