@@ -19,3 +19,4 @@ config.get("config")
 em.to_string().as_ref() 是转换为 
 &str 字符串list序列的一个-引用地址
 as_str是值
+turi前端发完之后还在卡着是因为是一个后端是一个server，一直在监听，直到退出才会停止
