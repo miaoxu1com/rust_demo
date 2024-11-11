@@ -15,3 +15,7 @@ config.get("config")
 #[derive(Serialize, Deserialize, Debug)]  装饰器/语法糖 就是一个包裹糖块的外衣
 
 经过实践复杂嵌套类型的数据还是要用yaml，tomli也只适合用来作为 配置文件键值对
+
+em.to_string().as_ref() 是转换为 
+&str 字符串list序列的一个-引用地址
+as_str是值
