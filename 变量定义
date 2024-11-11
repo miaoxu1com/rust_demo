@@ -3,9 +3,13 @@ Vec<String> 这个相当于 python的 字符串列表
 Vec代表是范类型 <> 代表是一个list  String代表list的元素是字符串
 
 config.get("config")
-            .and_then(|c| c.get("email_url"))
-            .and_then(|url| url.as_str())
-            .map(String::from)
-            .expect("无法获取 email_url")
+            .and_then(|c| c.get("_sender"))
+            .and_then(|to_list| to_list.as_array())
+            .map(|arr| arr.iter().map(|s| s.as_str().unwrap_or("").to_string()).collect())
+            .expect("无法获取 _sender")
 
 调用链代表从配置文件拿数据and_then 和python .get.get类似.map代表对数据使用map方法进行二次加工处理.expect 对结果进行异常判断 |c| c.get("email_url") 这个用法相当于python的 匿名函数调用 和 shell脚本管道符很像  参数  函数体
+.map(|arr| arr.iter() 接受and_then(|to_list| to_list.as_array()) 处理后的结果 继续 处理数据  接收到的是arr所以用arr命名更有意义 处理完后
+.map(|s| s.as_str().unwrap_or("").to_string()) 继续处理把str类型处理为string类型 .collect 把最终处理的结果放入 Vec 实例中
+
+#[derive(Serialize, Deserialize, Debug)]  装饰器/语法糖 就是一个包裹糖块的外衣
