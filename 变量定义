@@ -13,3 +13,5 @@ config.get("config")
 .map(|s| s.as_str().unwrap_or("").to_string()) 继续处理把str类型处理为string类型 .collect 把最终处理的结果放入 Vec 实例中
 
 #[derive(Serialize, Deserialize, Debug)]  装饰器/语法糖 就是一个包裹糖块的外衣
+
+经过实践复杂嵌套类型的数据还是要用yaml，tomli也只适合用来作为 配置文件键值对
